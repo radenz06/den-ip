@@ -10,6 +10,9 @@
 - 🔒 **PRIVASI JANCUK** - ISP, koneksi tai, tau dia pake VPN tai kagak
 - 📊 **LOG MEMEK** - Semua bangke yang buka kesimpen otomatis
 
+**SYARAT:**
+*KALO MAU JADI PUBLIK,TINGGAL TEMBAK AJA PORT NYA PAKE CLOUDFIRE TRUS KIRIM LINK NYA KE TARGET!*
+
 ## 🚀 CARA PASANG BANGSAT!
 
 ```bash
